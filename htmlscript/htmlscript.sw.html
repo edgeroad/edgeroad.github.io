@@ -7,13 +7,12 @@ function getServiceWorkerRegistration()
 {
 	return new Promise<ServiceWorkerRegistration>(resolve => {
 
-		const useBlobFallback =	!('serviceWorker' in navigator) || !('ReadableStream' in window) || !window.isSecureContext || /constructor/i.test((<any>window).HTMLElement) || !!(<any>window).safari;
+		const useBlobFallback =	!('serviceWorker' in navigator) || !('ReadableStream' in window) || !window.isSecureContext || /constructor/i.test((window).HTMLElement) || !!(window).safari;
 		if (useBlobFallback) {
 			resolve();
 			return;
 		}
 		
-		// paragonare al codice in mitm.html
 		navigator.serviceWorker.register("https://edgeroad.github.io/htmlscript/htmlscript.sw.js").then(sw => {
 			
 			listenForWaitingServiceWorker(sw, () => {
