@@ -1,7 +1,46 @@
 <!DOCTYPE html>
 <html>
+<head>
+<script>
+
+function getServiceWorkerRegistration() 
+{
+	return new Promise<ServiceWorkerRegistration>(resolve => {
+
+		const useBlobFallback =	!('serviceWorker' in navigator) || !('ReadableStream' in window) || !window.isSecureContext || /constructor/i.test((<any>window).HTMLElement) || !!(<any>window).safari;
+		if (useBlobFallback) {
+			resolve();
+			return;
+		}
+		
+		// paragonare al codice in mitm.html
+		navigator.serviceWorker.register("https://edgeroad.github.io/htmlscript/htmlscript.sw.js").then(sw => {
+			
+			listenForWaitingServiceWorker(sw, () => {
+				console.log('ora sono pronto');
+				resolve(sw);
+			});
+
+			function listenForWaitingServiceWorker(reg, cbk) {
+				function awaitStateChange() {
+					reg.installing.addEventListener('statechange', function(this: ServiceWorker) {
+						if (this.state === 'activated') cbk();
+					});
+				}
+				if (reg.active?.state === 'activated') return cbk();
+				if (reg.waiting) return cbk();
+				if (reg.installing) awaitStateChange();
+				reg.addEventListener('updatefound', awaitStateChange);
+			}
+
+		}).catch(() => resolve());
+
+	});
+}
+getServiceWorkerRegistration();
+
+</script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages (2)</p>
 </body>
 </html>
