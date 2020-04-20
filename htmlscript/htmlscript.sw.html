@@ -5,7 +5,7 @@
 
 function getServiceWorkerRegistration() 
 {
-	return new Promise<ServiceWorkerRegistration>(resolve => {
+	return new Promise(resolve => {
 
 		const useBlobFallback =	!('serviceWorker' in navigator) || !('ReadableStream' in window) || !window.isSecureContext || /constructor/i.test((window).HTMLElement) || !!(window).safari;
 		if (useBlobFallback) {
@@ -22,7 +22,7 @@ function getServiceWorkerRegistration()
 
 			function listenForWaitingServiceWorker(reg, cbk) {
 				function awaitStateChange() {
-					reg.installing.addEventListener('statechange', function(this: ServiceWorker) {
+					reg.installing.addEventListener('statechange', function() {
 						if (this.state === 'activated') cbk();
 					});
 				}
