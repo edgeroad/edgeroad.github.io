@@ -1,4 +1,4 @@
-self.addEventListener('install', () => {
+self.addEventListener('install', function() {
 	self.skipWaiting();
 });
 
