@@ -27,6 +27,7 @@
 	<!-- Custom -->
 	<ItemGroup>
 		<None Include="index.html" />
+		<None Include="image*.jpg" />				
 		<!--<None Include="pwa-via-iframe\**" />-->
 	</ItemGroup>
 
