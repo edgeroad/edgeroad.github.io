@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- https://github.com/TheNocoder/pwa -->
+    <head>
+        <title>PWA via Iframe</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="Iframe PWA">
+        <meta name="apple-mobile-web-app-title" content="Iframe PWA">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="manifest" href="/pwa/manifest.json">
+        <style>
+            body, html {
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+       <script>
+
+			 addEventListener("DOMContentLoaded", (event) => { 
+            let iframe = document.getElementById('myiframe');
+			
+				 iframe.src = "/index.html"
+
+          });
+
+			 document.addEventListener("click", function (evnt) {
+             // offre la barra di uscita automaticamente
+             top.location = "https://developer.mozilla.org/en-US/"
+			 });
+
+       </script>
+    </head>
+    <body>
+        <div style="width:100%; height:100%; overflow: hidden; position: absolute; top: 50px; left: 0; right: 0; bottom: 0;">
+            <iframe id="myiframe" src="/index.html" style="width: 100%;height: 100%;border: none; overflow: auto;"></iframe>
+        </div>
+        <script>
+            var serviceWorkerReg = false;
+            window.addEventListener('load', function() {
+                if ('serviceWorker' in navigator) {
+                    serviceWorkerReg = navigator.serviceWorker.register('/pwa/service-worker.js');
+                }
+            });
+        </script>
+    </body>
+</html>
