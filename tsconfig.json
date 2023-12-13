@@ -1,0 +1,20 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"target": "ES2017",
+		"lib": [ "ES2017", "DOM" ],
+		"sourceMap": true,
+		"allowJs": false,
+		"declaration": true,
+		"rootDir": ".",
+		"allowUnreachableCode": true,
+		"noEmitOnError": true,
+		"strict": false,
+		"noImplicitAny": false,
+		"strictNullChecks": false,
+		"noImplicitThis": true,
+		"strictBindCallApply": true,
+		"removeComments": true
+	},
+	"files": [ "tsconfig.ts" ]
+}

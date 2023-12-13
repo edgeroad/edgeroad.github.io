@@ -1,15 +1,16 @@
 using Microsoft.Extensions.FileProviders;
 
-namespace WebApplication1.Properties
+namespace LaunchSettings
 {
-	public class launchSettings
+	public class LaunchSettings
 	{
 		public static void Main(string[] args)
 		{
-			var bld = WebApplication.CreateBuilder(args);
+			var dir = Directory.GetCurrentDirectory() + "\\";
+			var bld = WebApplication.CreateBuilder(new WebApplicationOptions { WebRootPath = dir, ContentRootPath = dir });
 			var app = bld.Build();
-			app.UseStaticFiles(new StaticFileOptions { FileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory() + "\\") });
-			app.MapGet("/", () => "Hello World!");
+			app.UseDefaultFiles();
+			app.UseStaticFiles ();
 			app.Run();
 		}
 	}

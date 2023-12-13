@@ -17,17 +17,17 @@
 		<Content Remove="**" />
 		<Compile Remove="**" />
 		<TypeScriptCompile Remove="**" />
+		<None Include=".gitignore" />
 		<None Include="Properties\launchSettings.json" />
 		<Compile Include="Properties\launchSettings.cs" />
-		<!--<Content Include="tsconfig.json" />
-		<TypeScriptCompile Include="tsconfig.ts" />-->
+		<Content Include="tsconfig.json" />
+		<TypeScriptCompile Include="tsconfig.ts" />
 	</ItemGroup>
 
+	<!-- Custom -->
 	<ItemGroup>
-		<!-- Custom -->
-		<!--<None Include="Tests\**\*.html" />
-		<TypeScriptCompile Include="Tests\**\*.ts" />
-		<TypeScriptCompile Remove="**\*.d.ts" />-->
+		<None Include="index.html" />
+		<!--<None Include="pwa-via-iframe\**" />-->
 	</ItemGroup>
 
 	<ItemGroup>

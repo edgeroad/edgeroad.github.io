@@ -135,15 +135,17 @@ _NCrunch*
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 
-# HtmlScript
+# Custom Exclude
 *.js
 *.js.map
 *.d.ts
 *.d.ts.map
 *.tsbuildinfo
 **/dist/**
+**/baseline.js
+# Custom Include
 !**/node_modules/**
 !**/baseline/**
 !./htmlscript.js
 !./default.js
-**/baseline.js
+!**/service-worker.js
