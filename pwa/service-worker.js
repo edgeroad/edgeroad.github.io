@@ -4,26 +4,32 @@
  */
 
 self.addEventListener('install', function(event) {
-    var offlineRequest = new Request('/pwa/offline.html');
-    event.waitUntil(
-        fetch(offlineRequest).then(function(response) {
-            return caches.open('offline').then(function(cache) {
-                return cache.put(offlineRequest, response);
-            });
-        })
-    );
+	 var offlineRequest = new Request('/pwa/offline.html');
+	 event.waitUntil(
+		  fetch(offlineRequest).then(function(response) {
+				return caches.open('offline').then(function(cache) {
+					 return cache.put(offlineRequest, response);
+				});
+		  })
+	 );
 });
 
 self.addEventListener('fetch', function(event) {
-    var request = event.request;
-    if (request.method === 'GET') {
-        event.respondWith(
-            fetch(request).catch(function(error) {
-                return caches.open('offline').then(function(cache) {
-                    return cache.match('/pwa/offline.html');
-                });
-            })
-        );
-    }
-});
+	 var request = event.request;
+	 if (request.method === 'GET') {
+		  event.respondWith(
+				fetch(request).catch(function(error) {
+					 return caches.open('offline').then(function(cache) {
+						  return cache.match('/pwa/offline.html');
+					 });
+				})
+		  );
+	 }
+})
+
+self.addEventListener('message', (event) => {
+	if (event.data === 'SKIP_WAITING') {
+		self.skipWaiting();
+	}
+})
 
