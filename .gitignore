@@ -147,5 +147,5 @@ _NCrunch*
 !**/node_modules/**
 !**/baseline/**
 !./htmlscript.js
-!./default.js
+!index.js
 !**/service-worker.js
