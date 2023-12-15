@@ -130,28 +130,28 @@
 
 Vantaggi PWA
 
-- target più ampio e completo (device mobili e desktop, tutti gli OS in circolazione)
+- target piu' ampio e completo (device mobili e desktop, tutti gli OS in circolazione)
 - installazione progressiva: sito, sito+sw, installazione locale da sito ... fino allo store come app nativa
-- l'app locale viene prodotta in base all'OS, es. su Windows è un link che lancia il browser con un guid, su mobile viene prodotta al volo un'app che sembra arrivare dallo store
+- l'app locale viene prodotta in base all'OS, es. su Windows e' un link che lancia il browser con un guid, su mobile viene prodotta al volo un'app che sembra arrivare dallo store
 - integrazione con il sistema molto ampia e supportata nativamente (camera, contatti, telefono) e configurazione di molti aspetti tramite un manifest
 - con un backend di servizi (su Azure) si possono offrire servizi a valore interessanti
-- le PWA sono il futuro delle app ibride, ereditano l'evoluzione dell'OS e le indicazione per app ibride è usare le PWA, infatti Google ha tolto le app da Chrome e reso più difficile pubblicare un'app nativa sullo store
+- le PWA sono il futuro delle app ibride, ereditano l'evoluzione dell'OS e le indicazione per app ibride e' usare le PWA, infatti Google ha tolto le app da Chrome e reso piu' difficile pubblicare un'app nativa sullo store
 - le PWA abbattono anche i costi
 - *** esistono plugin di WP che fanno PWA anche con numeri interessanti, sarebbe da vedere
 - *** con un lavoro ben fatto si può anche fare una extension di Chrome che trasforma un sito in PWA, di queste non ne ho trovate nemmeno una
-- le PWA hanno le stesse performance del sito originale, e questo è molto interessante
+- le PWA hanno le stesse performance del sito originale, e questo e' molto interessante
 
-nota: lo sviluppo di PWA è più veloce e sostenibile nel futuro, l'architettura dietro è più semplice e snella (bastano le Azure function + servizio licenze)
+nota: lo sviluppo di PWA e' più veloce e sostenibile nel futuro, l'architettura dietro e' più semplice e snella (bastano le Azure function + servizio licenze)
 nota: per produrre una app nativa esiste il servizio PWA Builder (che per Android si appoggia ad un tool di Google) che produce app per tutti gli store
-nota: la modalità di installazione è legata all'OS ma è facile in tutti i casi
+nota: la modalità di installazione e' legata all'OS ma e' facile in tutti i casi
 
 Svantaggi PWA
 
 - non si possono fare app native, ma molte cose che fa un'app nativa posso essere sostituite da servizi remoti a pagamento
 - le notifiche su iOS solo ad app aperta (ma le cose stanno evolvendo)
-- a mio parere l'unica differenza alla nostra soluzione è la gestione dei menu ma ci sono almeno 2 soluzioni possibili:
+- a mio parere l'unica differenza alla nostra soluzione e' la gestione dei menu ma ci sono almeno 2 soluzioni possibili:
   1) gestire il sistema di menu con un ulteriore plugin di WP: in questo caso il menu appartiene al sito di fatto e va bene qualsiasi cosa, questa soluzione potrebbe essere usata anche per un sito non di WP	
-  2) fare una PWA che usa iframe: benchè questa tecnica non abbia valenza generale (es. lanciare Google in un iframe è impossibile) va benissimo per il sito specifico su WP e consente di usare quasi tutto il plugin attuale; è possibile anche proporre tipi diversi di menu
+  2) fare una PWA che usa iframe: benche' questa tecnica non abbia valenza generale (es. lanciare Google in un iframe e' impossibile) va benissimo per il sito specifico su WP e consente di usare quasi tutto il plugin attuale; e' possibile anche proporre tipi diversi di menu
 
 	</pre>
 </body>
