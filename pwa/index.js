@@ -1,12 +1,12 @@
 ﻿self.addEventListener("DOMContentLoaded", (event) => { 
-	let iframe = document.getElementById('myiframe');
-	iframe.src = "/index.html"
+	let button = document.getElementById('button1');
+	button.click();
 })
 
-self.addEventListener("click", function (event) {
-	// offre la barra di uscita automaticamente
-	top.location = "https://developer.mozilla.org/en-US/"
-})
+//self.addEventListener("click", function (event) {
+//	// offre la barra di uscita automaticamente
+//	top.location = "https://developer.mozilla.org/en-US/"
+//})
 
 //var serviceWorkerReg = false;
 //self.addEventListener('load', function() {
