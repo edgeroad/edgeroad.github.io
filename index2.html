@@ -45,7 +45,7 @@
    /***** Your code goes here! *****/
 
 	//var b = Bugout();
-	var b = Bugout("bugout-chat-tutorial");
+	var b = Bugout("bugout-chat-tutorial", { iceServers: [{ urls: 'stun:freestun.net:3478' }, { urls: 'turn:freestun.net:3478', username: 'free', credential: 'free' }] });
 	log(b.address() + " [ me ]");
 	b.on("seen", function (address) { log(address + " [ seen ]"); });
 
